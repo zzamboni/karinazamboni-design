@@ -10,7 +10,7 @@ paginate = 10
 canonifyurls = true
 
 [params]
-  description = "karinazamboni.design"
+  description = ""
   cover = "images/cover.jpg"
   author = "Karina Zamboni"
 #  authorlocation = "Paris, France"
