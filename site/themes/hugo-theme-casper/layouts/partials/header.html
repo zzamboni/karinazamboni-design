@@ -70,6 +70,24 @@
     {{ if .Site.Params.customHeaderPartial }}
         {{ partial .Site.Params.customHeaderPartial . }}
     {{ end }}
+
+  <script src="https://unpkg.com/netlify-auth-providers"></script>
+
+  <script>
+    $(function() {
+      $("#login").on("click", function(e) {
+        e.preventDefault();
+        var authenticator = new netlify.default ({});
+        authenticator.authenticate({provider:"github", scope: "user"}, function(err, data) {
+          if (err) {
+            return $("#output").text("Error Authenticating with GitHub: " + err);
+          }
+          $("#output").text("Authenticated with GitHub. Access Token: " + data.token);
+        });
+      });
+    });
+  </script>
+
 </head>
 <body class="nav-closed">
 

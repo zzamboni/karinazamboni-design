@@ -9,6 +9,23 @@
   <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^1.0.0/dist/cms.css" />
   <!-- Include a CMS specific stylesheet here -->
 
+  <script src="https://unpkg.com/netlify-auth-providers"></script>
+
+  <script>
+    $(function() {
+      $("#login").on("click", function(e) {
+        e.preventDefault();
+        var authenticator = new netlify.default ({});
+        authenticator.authenticate({provider:"github", scope: "user"}, function(err, data) {
+          if (err) {
+            return $("#output").text("Error Authenticating with GitHub: " + err);
+          }
+          $("#output").text("Authenticated with GitHub. Access Token: " + data.token);
+        });
+      });
+    });
+  </script>
+
 </head>
 <body>
   <script src="https://unpkg.com/netlify-cms@^1.0.0/dist/cms.js"></script>

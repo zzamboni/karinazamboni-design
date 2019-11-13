@@ -1,11 +1,11 @@
 backend:
   name: github
-  repo: owner/repository # Path to your Github repository
-  branch: master # Branch to update (master by default)
+  repo: zzamboni/karinazamboni-design
+  branch: master
 
 publish_mode: editorial_workflow
 
-media_folder: "site/static/img/blog" # Folder where user uploaded files should go
+media_folder: "site/static/images" # Folder where user uploaded files should go
 public_folder: "/img/blog"
 
 collections: # A list of collections the CMS should be able to edit
